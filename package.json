@@ -1,0 +1,25 @@
+{
+  "name": "sebastian-cortes-cv",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sebastián Cortés virtual CV with a retro web interface and modern frontend/backend architecture.",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @etascript/web",
+    "dev:web": "npm run dev --workspace @etascript/web",
+    "dev:api": "npm run dev --workspace @etascript/api",
+    "build": "npm run build --workspace @etascript/shared && npm run build --workspace @etascript/api && npm run build --workspace @etascript/web",
+    "typecheck": "npm run build --workspace @etascript/shared && npm run typecheck --workspace @etascript/api && npm run typecheck --workspace @etascript/web",
+    "test": "npm run build --workspace @etascript/shared && npm run test --workspace @etascript/api && npm run test --workspace @etascript/web",
+    "db:generate": "npm run db:generate --workspace @etascript/api",
+    "db:migrate": "npm run db:migrate --workspace @etascript/api",
+    "db:seed": "npm run db:seed --workspace @etascript/api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#10232f"/>
+  <rect x="24" y="24" width="912" height="492" fill="#0b1822" stroke="#52f2a8" stroke-width="2"/>
+  <text x="48" y="84" fill="#52f2a8" font-family="Courier New" font-size="32">SCREENSHOT PENDIENTE_</text>
+  <text x="48" y="132" fill="#e8edf2" font-family="Courier New" font-size="24">polygon-pong</text>
+  <circle cx="300" cy="270" r="54" fill="#245edb"/>
+  <rect x="580" y="190" width="44" height="160" fill="#00d084"/>
+  <rect x="210" y="210" width="44" height="120" fill="#d6a700"/>
+</svg>

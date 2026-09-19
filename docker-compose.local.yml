@@ -1,0 +1,48 @@
+name: sebastian-cortes-cv-local
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: sebastian-cortes-api-local
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      PORT: 8001
+      HOST: 0.0.0.0
+      DATABASE_URL: /data/sebastian_cortes.sqlite
+      JWT_SECRET: ${JWT_SECRET:-change-this-secret}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@sebastian-cortes.local}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-in-env}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8000}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8000}
+      UPLOAD_DIR: /uploads
+    volumes:
+      - sebastian_cortes_sqlite_local:/data
+      - sebastian_cortes_uploads_local:/uploads
+    ports:
+      - "8001:8001"
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: sebastian-cortes-web-local
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      VITE_API_BASE_URL: /api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - api
+
+volumes:
+  sebastian_cortes_sqlite_local:
+  sebastian_cortes_uploads_local:

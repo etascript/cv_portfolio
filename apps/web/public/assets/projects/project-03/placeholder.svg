@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#f2f0e9"/>
+  <rect x="28" y="28" width="904" height="484" fill="#fff" stroke="#808080" stroke-width="2"/>
+  <text x="52" y="96" fill="#003399" font-family="Courier New" font-size="32">SCREENSHOT PENDIENTE_</text>
+  <text x="52" y="144" fill="#111" font-family="Courier New" font-size="24">sistema-biblioteca-duoc</text>
+  <rect x="52" y="190" width="240" height="250" fill="#e4e1d8" stroke="#404040"/>
+  <rect x="322" y="190" width="560" height="48" fill="#d4d0c8" stroke="#404040"/>
+  <rect x="322" y="258" width="560" height="48" fill="#d4d0c8" stroke="#404040"/>
+  <rect x="322" y="326" width="560" height="48" fill="#d4d0c8" stroke="#404040"/>
+</svg>
