@@ -11,21 +11,21 @@ services:
       - path: .env
         required: false
     environment:
-      PORT: 8001
+      PORT: 8003
       HOST: 0.0.0.0
       DATABASE_URL: /data/sebastian_cortes.sqlite
       JWT_SECRET: ${JWT_SECRET:-change-this-secret}
       ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@sebastian-cortes.local}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me-in-env}
-      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8000}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8002}
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
-      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8000}
+      PUBLIC_BASE_URL: ${PUBLIC_BASE_URL:-http://localhost:8002}
       UPLOAD_DIR: /uploads
     volumes:
       - sebastian_cortes_sqlite_local:/data
       - sebastian_cortes_uploads_local:/uploads
     ports:
-      - "8001:8001"
+      - "8003:8003"
 
   web:
     build:
@@ -39,7 +39,7 @@ services:
     environment:
       VITE_API_BASE_URL: /api
     ports:
-      - "8000:8000"
+      - "8002:8002"
     depends_on:
       - api
 

@@ -33,7 +33,7 @@ useSeo(
         {{ t("home.hello") }}<br />
         {{ t("home.name") }}<br />
         <span class="hero__role">{{ t("home.role") }}</span><br />
-        {{ t("home.place") }}
+        <!-- {{ t("home.place") }} -->
       </h1>
       <p>{{ t("home.lead") }}</p>
       <!-- <p>{{ t("home.body") }}</p> -->
@@ -46,7 +46,7 @@ useSeo(
     <RetroPanel>
       <RetroGlobe />
       <p><strong>Sebastián Cortés<span class="blink">_</span></strong></p>
-      <p>C:\&gt; idea_to_interface_</p>
+      <p>C:\&gt; etascript</p>
     </RetroPanel>
   </div>
 

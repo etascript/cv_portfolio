@@ -16,5 +16,5 @@ COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
 COPY --from=build /app/packages/shared /app/packages/shared
 COPY --from=build /app/apps/api /app/apps/api
-EXPOSE 8001
+EXPOSE 8003
 CMD ["npm", "run", "start", "--workspace", "@etascript/api"]

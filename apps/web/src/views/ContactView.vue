@@ -42,7 +42,7 @@ useSeo(() => t("contact.title"), () => t("contact.intro"));
         <p v-if="error" role="alert">{{ error }}</p>
       </form>
       <RetroPanel :title="t('contact.other')">
-        <p><strong>GitHub</strong><br /><a href="https://github.com/sebastiancortes">github.com/sebastiancortes</a></p>
+        <p><strong>GitHub</strong><br /><a href="https://github.com/etascript">github.com/etascript</a></p>
         <p><strong>LinkedIn</strong><br /><a href="https://linkedin.com/in/sebastiancortes777">linkedin.com/in/sebastiancortes</a></p>
         <p><strong>Email</strong><br /><a href="mailto:sebastiancortes.2202@gmail.com">sebastiancortes.2202@gmail.com</a></p>
         <p><strong>{{ t("contact.location") }}</strong><br />San Antonio, Chile</p>

@@ -10,4 +10,4 @@ RUN npm run build --workspace @etascript/shared && npm run build --workspace @et
 FROM nginx:1.27-alpine
 COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/apps/web/dist /usr/share/nginx/html
-EXPOSE 8000
+EXPOSE 8002

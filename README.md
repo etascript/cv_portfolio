@@ -28,11 +28,65 @@ The database model stores bilingual fields on content entities, so projects are 
 
 ```bash
 npm install
+npm run dev
+```
+
+The default dev command starts both services:
+
+- Web: `http://127.0.0.1:8002`
+- API: `http://127.0.0.1:8003`
+
+The web app proxies `/api`, `/uploads`, `/sitemap.xml` and `/robots.txt` to the API.
+
+Port helpers:
+
+```bash
+npm run ports
+npm run ports:free
+```
+
+`ports:free` only closes `node` processes listening on the current dev pair (`8002/8003`). It will skip non-Node services, so a Laragon/PHP project on `8000` is left alone.
+
+You can still run services separately:
+
+```bash
 npm run dev:api
 npm run dev:web
 ```
 
-Web runs on `http://127.0.0.1:8000` and proxies `/api`, `/uploads`, `/sitemap.xml` and `/robots.txt` to `http://127.0.0.1:8001`.
+If `8002/8003` are busy, use the alternate pair:
+
+```bash
+npm run dev:alt
+```
+
+Alternate ports:
+
+- Web: `http://127.0.0.1:8004`
+- API: `http://127.0.0.1:8005`
+
+Public mobile preview with Cloudflare Tunnel:
+
+```bash
+npm run dev:public
+```
+
+This starts the local dev stack and opens a temporary `trycloudflare.com` URL. Use that URL from a phone or another network.
+
+If the public URL does not load from the same PC but `http://127.0.0.1:8002` works, check DNS/network resolution for `trycloudflare.com`. Testing from mobile data is a useful way to separate a local router/DNS issue from a tunnel issue.
+
+If the dev stack is already running with public tunnel support, you can open only the tunnel:
+
+```bash
+npm run tunnel
+```
+
+If you explicitly need the old pair `8000/8001`, use:
+
+```bash
+npm run dev:api:legacy
+npm run dev:web:legacy
+```
 
 ## Environment Variables
 
@@ -42,7 +96,7 @@ Copy `.env.example` and set production values:
 JWT_SECRET=replace-with-a-long-random-secret
 ADMIN_EMAIL=admin@sebastian-cortes.local
 ADMIN_PASSWORD=change-me-before-production
-CORS_ORIGIN=http://localhost:8000
+CORS_ORIGIN=http://localhost:8002
 COOKIE_SECURE=false
 PUBLIC_BASE_URL=https://sebastian-cortes.dev
 UPLOAD_DIR=./uploads

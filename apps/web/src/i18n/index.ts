@@ -16,10 +16,10 @@ export const messages = {
     },
     home: {
       hello: "Sebastián Cortés",
-      name: "Desarrollador web",
-      role: "interfaces, sistemas",
-      place: "y herramientas.",
-      lead: "Trabajo en aplicaciones web, paneles administrativos y proyectos experimentales donde una buena idea necesita pasar rápido a algo usable.",
+      name: "Ingeniero en software",
+      role: "desarrollador full stack",
+      place: "y videojuegos casuales.",
+      lead: "Creo aplicaciones web, automatizo procesos y casualmente desarrollo videojuegos.",
       body: "Me gusta moverme entre código, producto e IA aplicada: ordenar el problema, construir una primera versión y mejorarla con criterio.",
       featured: "// Proyectos destacados"
     },
@@ -70,10 +70,10 @@ export const messages = {
     },
     home: {
       hello: "Sebastián Cortés",
-      name: "Web developer",
-      role: "interfaces, systems",
-      place: "and tools.",
-      lead: "I work on web apps, admin panels and experimental projects where a good idea needs to become something usable quickly.",
+      name: "Software engineer",
+      role: "full-stack developer",
+      place: "and casual game dev.",
+      lead: "I build web apps, automate processes, and casually develop video games.",
       body: "I like working between code, product and applied AI: understanding the problem, building a first version and improving it with care.",
       featured: "// Featured projects"
     },

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
+import ExperienceConstellation from "@/components/effects/ExperienceConstellation.vue";
+import SkillSystem from "@/components/effects/SkillSystem.vue";
 import RetroFolderTree from "@/components/retro/RetroFolderTree.vue";
 import RetroPanel from "@/components/retro/RetroPanel.vue";
 import RetroTabs from "@/components/retro/RetroTabs.vue";
@@ -38,47 +40,62 @@ useSeo(() => t("about.title"), () => t("about.summary"));
   <RetroPanel :title="t('about.title')">
     <p>{{ t("about.summary") }}</p>
     <RetroTabs :tabs="tabs" :active="active" @change="active = $event" />
-    <section v-if="active === 'summary'">
-      <template v-if="locale === 'es'">
-        <p>
-          Tengo {{ age }} años y para mí programar no es solo trabajo: es una forma de probar ideas,
-          entender problemas y construir cosas que antes estaban dando vueltas solo como una posibilidad.
-        </p>
-        <p>
-          Disfruto aprender y trabajar con tecnologías nuevas, especialmente cuando abren caminos más simples para crear.
-          En mis desarrollos también integro IA para acelerar partes del proceso, explorar alternativas y materializar ideas mucho más rápido.
-        </p>
-        <p>
-          Me gusta mantener un equilibrio entre lo práctico y lo experimental: hacer software que funcione bien,
-          pero sin perder esa curiosidad que hace entretenido seguir aprendiendo.
-        </p>
-      </template>
-      <template v-else>
-        <p>
-          I'm {{ age }} years old, and for me programming is not only work: it is a way to test ideas,
-          understand problems and build things that were previously just a possibility.
-        </p>
-        <p>
-          I enjoy learning and working with new technologies, especially when they open simpler ways to create.
-          I also integrate AI into my development process to move faster, explore alternatives and turn ideas into working things sooner.
-        </p>
-        <p>
-          I like keeping a balance between practical work and experimentation: building software that works well,
-          without losing the curiosity that makes learning feel worthwhile.
-        </p>
-      </template>
+
+    <section v-if="active === 'summary'" class="about-summary">
+      <figure class="about-portrait">
+        <img src="/assets/branding/sebastian-cortes-portrait.png" alt="Retrato pixel art de Sebastián Cortés" />
+        <figcaption>Seba Cortés_</figcaption>
+      </figure>
+
+      <div>
+        <template v-if="locale === 'es'">
+          <p>
+            Tengo {{ age }} años y para mí programar no es solo trabajo: es una forma de probar ideas,
+            entender problemas y construir cosas que antes estaban dando vueltas solo como una posibilidad.
+          </p>
+          <p>
+            Disfruto aprender y trabajar con tecnologías nuevas, especialmente cuando abren caminos más simples para crear.
+            En mis desarrollos también integro IA para acelerar partes del proceso, explorar alternativas y materializar ideas mucho más rápido.
+          </p>
+          <p>
+            Me gusta mantener un equilibrio entre lo práctico y lo experimental: hacer software que funcione bien,
+            pero sin perder esa curiosidad que hace entretenido seguir aprendiendo.
+          </p>
+        </template>
+        <template v-else>
+          <p>
+            I'm {{ age }} years old, and for me programming is not only work: it is a way to test ideas,
+            understand problems and build things that were previously just a possibility.
+          </p>
+          <p>
+            I enjoy learning and working with new technologies, especially when they open simpler ways to create.
+            I also integrate AI into my development process to move faster, explore alternatives and turn ideas into working things sooner.
+          </p>
+          <p>
+            I like keeping a balance between practical work and experimentation: building software that works well,
+            without losing the curiosity that makes learning feel worthwhile.
+          </p>
+        </template>
+      </div>
     </section>
-    <section v-else-if="active === 'experience'" class="timeline">
-      <article v-for="item in content?.experiences" :key="item.id">
-        <strong>{{ item.period }}</strong>
-        <h3>{{ item.company }}</h3>
-        <p>{{ locale === "es" ? item.roleEs : item.roleEn }}</p>
-        <p>{{ locale === "es" ? item.descriptionEs : item.descriptionEn }}</p>
-      </article>
+
+    <section v-else-if="active === 'experience'" class="about-tab-layout">
+      <ExperienceConstellation />
+      <div class="timeline">
+        <article v-for="item in content?.experiences" :key="item.id">
+          <strong>{{ item.period }}</strong>
+          <h3>{{ item.company }}</h3>
+          <p>{{ locale === "es" ? item.roleEs : item.roleEn }}</p>
+          <p>{{ locale === "es" ? item.descriptionEs : item.descriptionEn }}</p>
+        </article>
+      </div>
     </section>
-    <section v-else-if="active === 'tools'">
+
+    <section v-else-if="active === 'tools'" class="about-tab-layout">
+      <SkillSystem />
       <RetroFolderTree :groups="groups" />
     </section>
+
     <section v-else>
       <p>&gt; Desarrollar</p>
       <p>&gt; Aprender</p>
