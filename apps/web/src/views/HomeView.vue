@@ -65,7 +65,7 @@ useSeo(
 
 <template>
   <section class="home-hero" aria-labelledby="home-title">
-    <div class="home-section-label">01. HOLA</div>
+    <div class="home-section-label">// BIENVENIDO.EXE</div>
     <div class="home-hero__main">
       <h1 id="home-title">
         Sebastián Cortés
@@ -84,7 +84,15 @@ useSeo(
       <div class="home-section-label">// 02. SEBA.EXE</div>
       <RetroGlobe />
       <p><strong>Sebastián Cortés</strong></p>
-      <p>C:\&gt; etascript<span class="blink">_</span></p>
+      <div class="home-boot-log" aria-hidden="true">
+        <span>&gt; initializing...</span>
+        <span>✓ web</span>
+        <span>✓ automatización</span>
+        <span>✓ videojuegos</span>
+        <span>✓ más ideas...</span>
+        <span class="blink">_</span>
+      </div>
+      <p class="home-coordinates">SANTIAGO, CL // 33.4489° S, 70.6693° W</p>
     </aside>
   </section>
 
