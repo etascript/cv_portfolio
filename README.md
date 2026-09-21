@@ -154,31 +154,18 @@ GitHub Actions workflow:
 Required repository secrets:
 
 ```text
-VM_HOST
-VM_USER
-VM_SSH_KEY
-VM_PROJECT_PATH
-```
-
-Optional:
-
-```text
-VM_PORT
-```
-
-`VM_PROJECT_PATH` must point to the cloned repository on the VM, for example:
-
-```text
-/home/sebas/apps/cv_portfolio
+VPS_HOST
+VPS_USER
+VPS_SSH_KEY
 ```
 
 The VM repository must already be able to pull from GitHub. The workflow runs:
 
 ```bash
+cd /srv/apps/cv_portfolio
 git fetch origin main
 git reset --hard origin/main
-docker compose build --pull api web
-docker compose up -d --remove-orphans
+docker compose up -d --build
 ```
 
 ## i18n
