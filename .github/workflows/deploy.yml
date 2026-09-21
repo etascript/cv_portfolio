@@ -30,7 +30,7 @@ jobs:
           script: |
             set -e
 
-            cd /srv/apps/cv_portfolio
+            cd /srv/apps/personal/portfolio
 
             git fetch origin main
             git reset --hard origin/main
