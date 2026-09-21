@@ -143,6 +143,44 @@ Services:
 - `sebastian_cortes_sqlite`: persistent SQLite volume.
 - `sebastian_cortes_uploads`: persistent uploads volume.
 
+## Continuous Deployment
+
+GitHub Actions workflow:
+
+```text
+.github/workflows/deploy.yml
+```
+
+Required repository secrets:
+
+```text
+VM_HOST
+VM_USER
+VM_SSH_KEY
+VM_PROJECT_PATH
+```
+
+Optional:
+
+```text
+VM_PORT
+```
+
+`VM_PROJECT_PATH` must point to the cloned repository on the VM, for example:
+
+```text
+/home/sebas/apps/cv_portfolio
+```
+
+The VM repository must already be able to pull from GitHub. The workflow runs:
+
+```bash
+git fetch origin main
+git reset --hard origin/main
+docker compose build --pull api web
+docker compose up -d --remove-orphans
+```
+
 ## i18n
 
 Initial locales are `es` and `en`. Public URLs are localized:

@@ -28,7 +28,30 @@ onMounted(async () => {
   project.value = await getProject(String(route.params.slug));
 });
 
-useSeo(() => project.value?.title ?? "Proyecto", () => body.value?.description ?? "Case study de Sebastián Cortés");
+useSeo(
+  () => project.value?.title ?? "Proyecto",
+  () => body.value?.description ?? "Case study de Sebastián Cortés",
+  {
+    type: () => "article",
+    image: () => project.value?.images[0]?.imagePath,
+    jsonLd: () => project.value
+      ? {
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: project.value.title,
+          description: body.value?.description,
+          url: window.location.href,
+          image: project.value.images[0]?.imagePath ? `${window.location.origin}${project.value.images[0].imagePath}` : undefined,
+          creator: {
+            "@type": "Person",
+            name: "Sebastián Cortés"
+          },
+          programmingLanguage: project.value.technologies,
+          codeRepository: project.value.githubUrl || undefined
+        }
+      : undefined
+  }
+);
 </script>
 
 <template>
